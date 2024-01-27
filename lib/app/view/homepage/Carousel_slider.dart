@@ -63,10 +63,12 @@ class _ImagesliderState extends State<Imageslider> {
             return GestureDetector(
               onTap: () => _controller.animateToPage(entry.key),
               child: Container(
+                
                 width: _current == entry.key ? 20.0 : 8.0, // Change width for selected dot
                 height: 8.0,
                 margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
                 decoration: BoxDecoration(
+                  
                   shape: BoxShape.rectangle,
                   borderRadius: BorderRadius.circular(4.0), // Adjust for desired curvature
                   color: _current == entry.key ? Colors.redAccent : Colors.grey,
