@@ -2,7 +2,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:foodapp/app/view/homepage/Carousel_slider.dart';
 import 'package:foodapp/app/view/homepage/Header.dart';
+import 'package:foodapp/app/view/homepage/apabar.dart';
 import 'package:foodapp/app/view/homepage/category_widget.dart';
+import 'package:foodapp/app/view/homepage/product.dart';
 import 'package:foodapp/app/view/homepage/restaurant.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -16,6 +18,10 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar:PreferredSize(
+        preferredSize: Size.fromHeight(50),
+        child: Appbar(),
+      ),
       
       body: Container(
         padding: EdgeInsets.only(top: 30),
@@ -33,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(height: 20),
               Restaurant(),
               SizedBox(height: 20),
-              Restaurant(),
+              Product(),
               SizedBox(height: 20),
               Restaurant(),
               SizedBox(height: 20),

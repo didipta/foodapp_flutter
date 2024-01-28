@@ -1,27 +1,26 @@
 import 'package:flutter/material.dart';
 
-class Restaurant extends StatefulWidget {
-  const Restaurant({Key? key}) : super(key: key);
+class Product extends StatefulWidget {
+  const Product({Key? key}) : super(key: key);
 
   @override
-  _RestaurantState createState() => _RestaurantState();
+  _ProductState createState() => _ProductState();
 }
 
-class _RestaurantState extends State<Restaurant> {
-  // Sample data for restaurants
-  final List<Map<String, dynamic>> _restaurants = [
+class _ProductState extends State<Product> {
+  // Sample data for Products
+  final List<Map<String, dynamic>> _Products = [
     {
-      'name': 'City Restaurant',
-      'image': 'https://www.oprah.com/g/image-resizer?width=670&link=https://static.oprah.com/images/201302/orig/201302-orig-beautiful-chicken-600x411.jpg',
+      'name': 'Kachchi Biriyani',
+      'image': 'https://foodfusion.com/wp-content/uploads/2019/01/Kachay-Gosht-ki-Biryani-Recipe-by-Food-fusion-5.jpg',
       'description': 'loram ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet loram ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet',  
       'time': '30 min',
       'rating': 4.5,
-      'type': 'Fast Food',
-       'offer': '20% off',
+      
     },
     {
-      'name': 'Habib Restaurant',
-      'image': 'https://imageproxy.wolt.com/venue/6232faaafd94b762808350de/ebcc50b6-a903-11ec-8d84-92cd96cd4d02_habib3.jpg',
+      'name': 'Habib Biriyani',
+      'image': 'https://i.ytimg.com/vi/AZ5dXCCmDIU/maxresdefault.jpg',
       'description': 'loram ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet loram ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet' ,
       'time': '30 min',
       'rating': 4.5,
@@ -39,15 +38,15 @@ class _RestaurantState extends State<Restaurant> {
       'offer': '10% off',
     },
     {
-      'name': 'Buffet restaurant',
-      'image': 'https://cosmosgroup.sgp1.digitaloceanspaces.com/news/6770417_best%20buffet%20restaurants%20Dhaka.jpg',
+      'name': 'Buffet Product',
+      'image': 'https://bangladeshmonitor.com.bd/hotel_img/Holiday-Inn1.jpg',
       'description': 'loram ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet',
       'time': '30 min',
       'rating': 4.5,
       'type': 'Fast Food', 
       'offer': '30% off',
     },
-    // More restaurants can be added here
+    // More Products can be added here
   ];
 
   @override
@@ -60,7 +59,7 @@ class _RestaurantState extends State<Restaurant> {
             child: Row(
               children: [
                 Text(
-                  'Restaurants',
+                  'Top Products',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -81,9 +80,9 @@ class _RestaurantState extends State<Restaurant> {
   padding: EdgeInsets.symmetric(horizontal: 10.0),
   child: ListView.builder(
     scrollDirection: Axis.horizontal,
-    itemCount: _restaurants.length,
+    itemCount: _Products.length,
     itemBuilder: (context, index) {
-      final restaurant = _restaurants[index];
+      final Product = _Products[index];
       return GestureDetector(
         onTap: () {
           // Handle the tap event
@@ -104,7 +103,7 @@ class _RestaurantState extends State<Restaurant> {
                   ClipRRect(
                     borderRadius: BorderRadius.vertical(top: Radius.circular(4.0)), // Adjust the radius
                     child: Image.network(
-                      restaurant['image']!,
+                      Product['image']!,
                       width: double.infinity,
                       height: 120,
                       fit: BoxFit.cover,
@@ -120,7 +119,7 @@ class _RestaurantState extends State<Restaurant> {
                         Row(
                           children: [
                             Text(
-                              restaurant['name']!,
+                              Product['name']!,
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
@@ -135,7 +134,7 @@ class _RestaurantState extends State<Restaurant> {
                               children: [
                                 Icon(Icons.star, color: Colors.yellow, size: 16),
                                 Text(
-                                  restaurant['rating'].toString(),
+                                  Product['rating'].toString(),
                                   style: TextStyle(
                                     fontSize: 15,
                                     fontWeight: FontWeight.bold,
@@ -149,75 +148,76 @@ class _RestaurantState extends State<Restaurant> {
                         ),
                         SizedBox(height: 8),
                         Text(
-                          restaurant['description'],
+                          Product['description'],
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                             color: Color.fromARGB(243, 167, 166, 166),
-                            fontSize: 15,
-                            fontWeight: FontWeight.w500
-                          ),
-                        ),
-
-                        SizedBox(height: 8),
-                        Row(
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                               Row(
-                          children: [
-                            Icon(Icons.timer, color: Colors.grey, size: 16),
-                            SizedBox(width: 5),
-                            Text(
-                              restaurant['time']!,
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.grey
-                              ),
-                            ),
-                            
-                          ],
-                        ),
-                        SizedBox(height: 8),
-                        Row(
-                          children: [
-                            Icon(Icons.fastfood, color: Colors.grey, size: 16),
-                            SizedBox(width: 5),
-                            Text(
-                              restaurant['type']!,
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.grey
-                              ),
-                            ),
-                            
-                          ],
-                        ),
-                              ],
-                            ),
-                            Spacer(),
-                            Container(
-                              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                              decoration: BoxDecoration(
-                                color: Colors.red,
-                                borderRadius: BorderRadius.circular(5)
-                              ),
-                              child: Text(
-                                restaurant['offer']!,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w500
+                                  ),
                                 ),
+
+                                SizedBox(height: 8),
+                                //quantity Add remove button
+                                Row(
+                                  children: [
+                                   Container(
+  decoration: BoxDecoration(
+    borderRadius: BorderRadius.circular(5),
+    color: const Color.fromARGB(255, 255, 255, 255),
+  ),
+  child: Row(
+    children: [
+      Container(
+        decoration: BoxDecoration(
+          color: Colors.red, // Red background color
+          borderRadius: BorderRadius.circular(30), // Fully rounded corners
+        ),
+        child: IconButton(
+          onPressed: () {
+            // Handle the press to decrease quantity
+          },
+          icon: Icon(Icons.remove, color: Colors.white),
+          padding: EdgeInsets.all(2.0), // Uniform padding
+          splashRadius: 20.0, // Adjust the splash radius of the button
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.symmetric(horizontal: 8.0), // Space between buttons and text
+        child: Text(
+          '1', // Replace with dynamic quantity value
+          style: TextStyle(fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),
+        ),
+      ),
+      Container(
+        decoration: BoxDecoration(
+          color: Colors.red, // Red background color
+          borderRadius: BorderRadius.circular(30), // Fully rounded corners
+        ),
+        child: IconButton(
+          onPressed: () {
+            // Handle the press to increase quantity
+          },
+          icon: Icon(Icons.add, color: Colors.white),
+          padding: EdgeInsets.all(2.0), // Uniform padding
+          splashRadius: 10.0, // Adjust the splash radius of the button
+        ),
+      ),
+    ],
+  ),
+),
+                            Spacer(),
+                            Text(
+                              Product['time'],
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.grey
                               ),
-                            )
-                            
+                            ),
                           ],
-                        )
-                        
+                        ),
                       ],
                     ),
                   ),
