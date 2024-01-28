@@ -11,18 +11,23 @@ class _RestaurantState extends State<Restaurant> {
   // Sample data for restaurants
   final List<Map<String, dynamic>> _restaurants = [
     {
-      'name': 'Restaurant A',
-      'image': 'https://imageproxy.wolt.com/venue/6232faaafd94b762808350de/ebcc50b6-a903-11ec-8d84-92cd96cd4d02_habib3.jpg',
+      'name': 'Restaurant',
+      'image': 'https://www.oprah.com/g/image-resizer?width=670&link=https://static.oprah.com/images/201302/orig/201302-orig-beautiful-chicken-600x411.jpg',
       'description': 'loram ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet loram ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet'  
     },
     {
       'name': 'Restaurant A',
       'image': 'https://imageproxy.wolt.com/venue/6232faaafd94b762808350de/ebcc50b6-a903-11ec-8d84-92cd96cd4d02_habib3.jpg',
+      'description': 'loram ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet loram ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet'  
+    },
+    {
+      'name': 'Mutton Kacchi',
+      'image': 'https://media-cdn.tripadvisor.com/media/photo-m/1280/15/ef/7f/00/mutton-kacchi-biryani.jpg',
       'description': 'loram ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet'  
     },
     {
-      'name': 'Restaurant A',
-      'image': 'https://imageproxy.wolt.com/venue/6232faaafd94b762808350de/ebcc50b6-a903-11ec-8d84-92cd96cd4d02_habib3.jpg',
+      'name': 'Buffet restaurant',
+      'image': 'https://cosmosgroup.sgp1.digitaloceanspaces.com/news/6770417_best%20buffet%20restaurants%20Dhaka.jpg',
       'description': 'loram ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet'  
     },
     // More restaurants can be added here
@@ -34,7 +39,7 @@ class _RestaurantState extends State<Restaurant> {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20, bottom: 10),
+            padding: const EdgeInsets.only(left: 20, right: 20, bottom: 0),
             child: Row(
               children: [
                 Text(
@@ -56,6 +61,7 @@ class _RestaurantState extends State<Restaurant> {
           ),
  Container(
   height: 200,
+  padding: EdgeInsets.symmetric(horizontal: 10.0),
   child: ListView.builder(
     scrollDirection: Axis.horizontal,
     itemCount: _restaurants.length,
@@ -68,9 +74,9 @@ class _RestaurantState extends State<Restaurant> {
         child: Padding(
           padding: const EdgeInsets.all(5.0),
           child: Card(
-            elevation: 2.0,
+            elevation: 1.0,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(4.0),
+              borderRadius: BorderRadius.circular(10.0),
             ),
             margin: EdgeInsets.symmetric(horizontal: 5.0),
             child: Container(
