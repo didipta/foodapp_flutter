@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:foodapp/app/view/homepage/BottomNavigationBar.dart';
 import 'package:foodapp/app/view/homepage/Carousel_slider.dart';
 import 'package:foodapp/app/view/homepage/Header.dart';
 import 'package:foodapp/app/view/homepage/apabar.dart';
@@ -52,6 +53,10 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
+   
+
+
+
     ) ;
   }
 }

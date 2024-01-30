@@ -16,16 +16,26 @@ class _LoginscreenState extends State<Loginscreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+     
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+
+            //logo add
+
+            Container(
+              child: Image.asset('assets/logo.png',height: 200,width: 200,),
+            ),
+           
+         
+            SizedBox(height: 20.0),
             Text(
-              "Login",
+              "Login to your account",
               style: TextStyle(
-                fontSize: 30.0,
-                fontWeight: FontWeight.bold,
+                fontSize: 20.0,
+                color: Colors.grey,
               ),
             ),
             SizedBox(height: 20.0),

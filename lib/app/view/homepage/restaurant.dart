@@ -89,7 +89,7 @@ class _RestaurantState extends State<Restaurant> {
           // Handle the tap event
         },
         child: Padding(
-          padding: const EdgeInsets.all(5.0),
+          padding: const EdgeInsets.only(bottom: 5),
           child: Card(
             elevation: 1.0,
             shape: RoundedRectangleBorder(

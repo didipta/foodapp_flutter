@@ -13,46 +13,86 @@ class Appbar extends StatelessWidget {
             child: GestureDetector(
               onTap: () {
                 showModalBottomSheet(
+                  barrierColor: Color.fromARGB(255, 102, 102, 102).withOpacity(0.6
+                  ),
+                  shape: RoundedRectangleBorder(
+
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(40.0),
+                      topRight: Radius.circular(40.0),
+
+                    ),
+                  ),
                   context: context,
                   builder: (BuildContext context) {
                     return Container(
                       height:MediaQuery.of(context).size.height/2,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(40.0),
-                          topRight: Radius.circular(40.0),
-                        ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 2,
-                            offset: Offset(0, 0),
-                          ),
-                        ],
-                      ),
                       child: ListView(
-                        children: <Widget>[
-                          ListTile(title:Container(
-                            margin: EdgeInsets.only(top: 20),
-                            child: Text('Select Address',style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),),
-                          )),
-                          ListTile(title:Container(
-                            margin: EdgeInsets.only(top: 20),
-                            child: Text('Add New Address',style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),),
-                          
-                          )),
-                          ListTile(title: Text('Address 3')),
-                          // Add more list tiles
-                        ],
-                      ),
+      padding: EdgeInsets.all(10), // Add padding around the list
+      children: <Widget>[
+        Container(
+          margin: EdgeInsets.all(20),
+          child: Text(
+            'Select Address',
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Colors.black54, // Change color if needed
+            ),
+          ),
+        ),
+        InkWell(
+          onTap: () {
+            // TODO: Handle Add New Address Tap
+          },
+          child: Container(
+            padding: EdgeInsets.symmetric(vertical: 15),
+            decoration: BoxDecoration(
+              color: Colors.red, // Change as per your color scheme
+              borderRadius: BorderRadius.circular(5),
+            ),
+            child: Text(
+              'Add New Address',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.white, // Text color
+              ),
+            ),
+          ),
+        ),
+        SizedBox(height: 20), // Spacing between widgets
+        ListTile(
+          leading: Icon(Icons.location_on), // Icon for the address
+          title: Text('Address 1'),
+          subtitle: Text('123, Main Street, City'), // Example address
+          trailing: Icon(Icons.edit), // Icon to indicate editing option
+          onTap: () {
+            // TODO: Handle Address Tap
+          },
+        ),
+        ListTile(
+          leading: Icon(Icons.location_on),
+          title: Text('Address 2'),
+          subtitle: Text('456, Second Ave, City'),
+          trailing: Icon(Icons.edit),
+          onTap: () {
+            // TODO: Handle Address Tap
+          },
+        ),
+        ListTile(
+          leading: Icon(Icons.location_on),
+          title: Text('Address 3'),
+          subtitle: Text('789, Third Blvd, City'),
+          trailing: Icon(Icons.edit),
+          onTap: () {
+          }
+        ),
+        
+        // Add more list tiles for additional addresses
+      ],
+    )
                     );
                   },
                 );

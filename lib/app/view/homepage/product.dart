@@ -16,6 +16,8 @@ class _ProductState extends State<Product> {
       'description': 'loram ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet loram ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet',  
       'time': '30 min',
       'rating': 4.5,
+      'price': 250,
+      'offer_price': '200',
       
     },
     {
@@ -26,6 +28,8 @@ class _ProductState extends State<Product> {
       'rating': 4.5,
       'type': 'Fast Food',
       'offer': '10% off',
+      'price': 250,
+      'offer_price': '200',
 
     },
     {
@@ -36,6 +40,8 @@ class _ProductState extends State<Product> {
       'rating': 4.5,
       'type': 'Fast Food',
       'offer': '10% off',
+      'price': 220,
+      'offer_price': '200',
     },
     {
       'name': 'Buffet Product',
@@ -45,6 +51,8 @@ class _ProductState extends State<Product> {
       'rating': 4.5,
       'type': 'Fast Food', 
       'offer': '30% off',
+      'price': 250,
+      'offer_price': '200',
     },
     // More Products can be added here
   ];
@@ -88,7 +96,7 @@ class _ProductState extends State<Product> {
           // Handle the tap event
         },
         child: Padding(
-          padding: const EdgeInsets.all(5.0),
+          padding: const EdgeInsets.only(bottom: 5),
           child: Card(
             elevation: 1.0,
             shape: RoundedRectangleBorder(
@@ -161,53 +169,67 @@ class _ProductState extends State<Product> {
                                 SizedBox(height: 8),
                                 //quantity Add remove button
                                 Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                   Container(
-  decoration: BoxDecoration(
-    borderRadius: BorderRadius.circular(5),
-    color: const Color.fromARGB(255, 255, 255, 255),
-  ),
-  child: Row(
-    children: [
-      Container(
-        decoration: BoxDecoration(
-          color: Colors.red, // Red background color
-          borderRadius: BorderRadius.circular(30), // Fully rounded corners
-        ),
-        child: IconButton(
-          onPressed: () {
-            // Handle the press to decrease quantity
-          },
-          icon: Icon(Icons.remove, color: Colors.white),
-          padding: EdgeInsets.all(2.0), // Uniform padding
-          splashRadius: 20.0, // Adjust the splash radius of the button
-        ),
-      ),
-      Padding(
-        padding: EdgeInsets.symmetric(horizontal: 8.0), // Space between buttons and text
-        child: Text(
-          '1', // Replace with dynamic quantity value
-          style: TextStyle(fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),
-        ),
-      ),
-      Container(
-        decoration: BoxDecoration(
-          color: Colors.red, // Red background color
-          borderRadius: BorderRadius.circular(30), // Fully rounded corners
-        ),
-        child: IconButton(
-          onPressed: () {
-            // Handle the press to increase quantity
-          },
-          icon: Icon(Icons.add, color: Colors.white),
-          padding: EdgeInsets.all(2.0), // Uniform padding
-          splashRadius: 10.0, // Adjust the splash radius of the button
-        ),
-      ),
-    ],
-  ),
-),
+                                            Container(
+                        decoration: BoxDecoration(
+                          color: Colors.red, // Red background color
+                          borderRadius: BorderRadius.circular(30), // Fully rounded corners
+                        ),
+                        child: IconButton(
+                          onPressed: () {
+                            // Handle the press to increase quantity
+                          },
+                          icon: Icon(Icons.add, color: Colors.white),
+                          padding: EdgeInsets.all(2.0), // Uniform padding
+                          splashRadius: 10.0, // Adjust the splash radius of the button
+                        ),
+                      ),
+                       Spacer(),
+                      //price add and offer price Show
+                      Container(
+                        padding: EdgeInsets.only(left: 10, right: 10),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                           Text(
+                              "৳ ",
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w500,
+                                color: const Color.fromARGB(255, 42, 42, 42)
+                              ),
+                            ),
+                            Text(
+                              Product['offer_price'].toString(),
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w500,
+                                color: const Color.fromARGB(255, 42, 42, 42)
+                              ),
+                            ),
+                            SizedBox(width: 5),
+                            Text(
+                              Product['price'].toString(),
+                              
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.grey,
+                                decoration: TextDecoration.lineThrough,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                             Spacer(),
+                            Icon(
+                              Icons.timer,
+                              color: Colors.grey,
+                              size: 15,
+                            ),
+                            
                             Text(
                               Product['time'],
                               style: TextStyle(
