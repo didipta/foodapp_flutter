@@ -5,6 +5,7 @@ import 'package:foodapp/app/view/homepage/Carousel_slider.dart';
 import 'package:foodapp/app/view/homepage/Header.dart';
 import 'package:foodapp/app/view/homepage/apabar.dart';
 import 'package:foodapp/app/view/homepage/category_widget.dart';
+import 'package:foodapp/app/view/homepage/filter.dart';
 import 'package:foodapp/app/view/homepage/product.dart';
 import 'package:foodapp/app/view/homepage/restaurant.dart';
 
@@ -34,9 +35,12 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
              Header(yourDataArrays: []),
              SizedBox(height: 20),
+             
               Imageslider(),
               SizedBox(height: 20),
               Categories(),
+              SizedBox(height: 20),
+              Filterall(),
               SizedBox(height: 20),
               Restaurant(),
               SizedBox(height: 20),
