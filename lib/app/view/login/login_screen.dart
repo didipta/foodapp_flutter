@@ -17,115 +17,121 @@ class _LoginscreenState extends State<Loginscreen> {
   Widget build(BuildContext context) {
     return Scaffold(
      
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-
-            //logo add
-
-            Container(
-              child: Image.asset('assets/logo.png',height: 200,width: 200,),
-            ),
-           
-         
-            SizedBox(height: 20.0),
-            Text(
-              "Login to your account",
-              style: TextStyle(
-                fontSize: 20.0,
-                color: Colors.grey,
-              ),
-            ),
-            SizedBox(height: 20.0),
-            _buildTextField("Username", Icons.account_circle, usernameController),
-            SizedBox(height: 20.0),
-            _buildTextField("Password", Icons.lock, passwordController, isPassword: true),
-            Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  TextButton(
-                    onPressed: () {
-                      Constant.sendToNext(context, Routes.verifyRoute);
-                    },
-                    child: Text("Forgot Password?"),
-                  ),
-                ],
-              ),
-            ),
-            
-            SizedBox(height: 20.0),
-            _buildLoginButton(context),
-            SizedBox(height: 20.0),
-            Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("Don't have an account?"),
-                  TextButton(
-                    onPressed: () {
-                      Constant.sendToNext(context, Routes.registerRoute);
-                    },
-                    child: Text("Sign Up"),
-                  ),
-                ],
-              ),
-            )
-            ,
-            SizedBox(height: 20.0),   
-            //socal media login ontab
-            Text(
-              "Or login with",
-              style: TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-           SizedBox(height: 20.0),
-            Row(
+      body: Center(
+        child: SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                GestureDetector(
-                  onTap: () {
-                    // Perform login with Google
-                  },
-                  child: Container(
-                    padding: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.red.withOpacity(0.7),
-                    ),
-                    child: Icon(
-                      Icons.g_mobiledata,
-                      color: Colors.white,
-                      size: 30,
-                    ),
+        
+                //logo add
+        
+                Container(
+                  child: Image.asset('assets/logo.png',height: 200,width: 200,),
+                ),
+               
+             
+                SizedBox(height: 20.0),
+                Text(
+                  "Login to your account",
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    color: Colors.grey,
                   ),
                 ),
-                SizedBox(width: 20.0),
-                GestureDetector(
-                  onTap: () {
-                    // Perform login with Facebook
-                  },
-                  child: Container(
-                    padding: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.red.withOpacity(0.7),
-                    ),
-                    child: Icon(
-                      Icons.facebook,
-                      color: Colors.white,
-                      size: 30,
-                    ),
+                SizedBox(height: 20.0),
+                _buildTextField("Username", Icons.account_circle, usernameController),
+                SizedBox(height: 20.0),
+                _buildTextField("Password", Icons.lock, passwordController, isPassword: true),
+                Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      TextButton(
+                        onPressed: () {
+                          Constant.sendToNext(context, Routes.verifyRoute);
+                        },
+                        child: Text("Forgot Password?"),
+                      ),
+                    ],
                   ),
                 ),
+                
+                SizedBox(height: 20.0),
+                _buildLoginButton(context),
+                SizedBox(height: 20.0),
+                Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Don't have an account?"),
+                      TextButton(
+                        onPressed: () {
+                          Constant.sendToNext(context, Routes.registerRoute);
+                        },
+                        child: Text("Sign Up"),
+                      ),
+                    ],
+                  ),
+                )
+                ,
+                SizedBox(height: 20.0),   
+                //socal media login ontab
+                Text(
+                  "Or login with",
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+               SizedBox(height: 20.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        // Perform login with Google
+                      },
+                      child: Container(
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.red.withOpacity(0.7),
+                        ),
+                        child: Icon(
+                          Icons.g_mobiledata,
+                          color: Colors.white,
+                          size: 30,
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 20.0),
+                    GestureDetector(
+                      onTap: () {
+                        // Perform login with Facebook
+                      },
+                      child: Container(
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.red.withOpacity(0.7),
+                        ),
+                        child: Icon(
+                          Icons.facebook,
+                          color: Colors.white,
+                          size: 30,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                
               ],
             ),
-            
-          ],
+          ),
         ),
       ),
     );

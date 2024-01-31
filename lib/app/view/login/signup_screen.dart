@@ -17,95 +17,101 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "Sign Up",
-              style: TextStyle(
-                fontSize: 30.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 20.0),
-            _buildTextField("Username", Icons.account_circle, usernameController),
-            SizedBox(height: 20.0),
-            _buildTextField("PhoneNumber", Icons.phone, passwordController, isPassword: true),
-              SizedBox(height: 20.0),
-            _buildTextField("Password", Icons.lock, passwordController, isPassword: true),
-            SizedBox(height: 20.0),
-            _buildTextField("Confirm Password", Icons.lock, confirmPasswordController, isPassword: true),
-            SizedBox(height: 20.0),
-            _buildSignUpButton(context),
-            Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("Already have an account?"),
-                  TextButton(
-                    onPressed: () {
-                      Constant.sendToNext(context, Routes.loginRoute);
-                    },
-                    child: Text("Login"),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 20.0),
-            //socal media
-            SizedBox(height: 20.0),   
-            //socal media login ontab
-            Text(
-              "Or login with",
-              style: TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-           SizedBox(height: 20.0),
-            Row(
+      body: Center(
+        child: SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                GestureDetector(
-                  onTap: () {
-                    // Perform login with Google
-                  },
-                  child: Container(
-                    padding: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.red.withOpacity(0.7),
-                    ),
-                    child: Icon(
-                      Icons.g_mobiledata,
-                      color: Colors.white,
-                      size: 30,
-                    ),
+                Text(
+                  "Sign Up",
+                  style: TextStyle(
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(width: 20.0),
-                GestureDetector(
-                  onTap: () {
-                    // Perform login with Facebook
-                  },
-                  child: Container(
-                    padding: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.red.withOpacity(0.7),
-                    ),
-                    child: Icon(
-                      Icons.facebook,
-                      color: Colors.white,
-                      size: 30,
-                    ),
+                SizedBox(height: 20.0),
+                _buildTextField("Username", Icons.account_circle, usernameController),
+                SizedBox(height: 20.0),
+                _buildTextField("PhoneNumber", Icons.phone, passwordController, isPassword: true),
+                  SizedBox(height: 20.0),
+                _buildTextField("Password", Icons.lock, passwordController, isPassword: true),
+                SizedBox(height: 20.0),
+                _buildTextField("Confirm Password", Icons.lock, confirmPasswordController, isPassword: true),
+                SizedBox(height: 20.0),
+                _buildSignUpButton(context),
+                Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Already have an account?"),
+                      TextButton(
+                        onPressed: () {
+                          Constant.sendToNext(context, Routes.loginRoute);
+                        },
+                        child: Text("Login"),
+                      ),
+                    ],
                   ),
+                ),
+                SizedBox(height: 20.0),
+                //socal media
+                SizedBox(height: 20.0),   
+                //socal media login ontab
+                Text(
+                  "Or login with",
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+               SizedBox(height: 20.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        // Perform login with Google
+                      },
+                      child: Container(
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.red.withOpacity(0.7),
+                        ),
+                        child: Icon(
+                          Icons.g_mobiledata,
+                          color: Colors.white,
+                          size: 30,
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 20.0),
+                    GestureDetector(
+                      onTap: () {
+                        // Perform login with Facebook
+                      },
+                      child: Container(
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.red.withOpacity(0.7),
+                        ),
+                        child: Icon(
+                          Icons.facebook,
+                          color: Colors.white,
+                          size: 30,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
-          ],
+          ),
         ),
       ),
     );

@@ -15,24 +15,32 @@ class _VerifyscreenState extends State<Verifyscreen> {
   Widget build(BuildContext context) {
     return Scaffold(
      
-      body: Padding(
-        padding: const EdgeInsets.all(50.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "Enter OTP",
-              style: TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-
-              ),
+      body:Center(
+        child: SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  
+          child: Padding(
+            padding: const EdgeInsets.all(50.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              verticalDirection: VerticalDirection.down,
+              children: [
+                Text(
+                  "Enter OTP",
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+        
+                  ),
+                ),
+                SizedBox(height: 20.0),
+                _buildOtpInputField(),
+                SizedBox(height: 20.0),
+                _buildVerifyButton(),
+              ],
             ),
-            SizedBox(height: 20.0),
-            _buildOtpInputField(),
-            SizedBox(height: 20.0),
-            _buildVerifyButton(),
-          ],
+          ),
         ),
       ),
     );
